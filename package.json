@@ -10,7 +10,7 @@
     "format": "npm run prettier -- --write",
     "validate": "npm-run-all --parallel check-types check-format lint",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
