@@ -1,9 +1,13 @@
-# Template - Frontend
+# Page - Frontend
 
 Template with Vite, React, postcss and typescript.
 
 ### 🚀 Enlaces
- * **First Version:** [page](https://templatevite.netlify.app)
+ * **First Version:** [page](https://starwarslist.netlify.app/)
+
+Imagenes de la pagina
+![firstpage](./src/utils/assets/page_1.png)
+![Secondpage](./src/utils/assets/detail.png)
 
 #### 🛠 Installation of project
 ```
