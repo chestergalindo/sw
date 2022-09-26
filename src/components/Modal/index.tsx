@@ -6,7 +6,8 @@ import Modal from '@mui/material/Modal';
 import { People, Film } from '../../utils/types';
 import { style, ButtonLink } from './style'
 
-export const ModalInformation = (props: People) => {
+export const ModalInformation = ( props: People ) =>
+{
   const [ open, setOpen ] = useState( false );
   const [ filmsInformation, setFilmsInformation ] = useState( props.person.filmConnection.films );
   const [ hasFilter, setHasFilter ] = useState( false );
@@ -16,6 +17,7 @@ export const ModalInformation = (props: People) => {
   const directorNames: string[] = [];
   let producersNames: string[] = [];
   let planetNames: any[] = [];
+  let date = '';
 
   const handleFilter = (title: string) =>
   {
@@ -30,12 +32,16 @@ export const ModalInformation = (props: People) => {
     titleNames.push(film.title);
     directorNames.push(film.director);
     planetNames = valuePlanet.concat(film.planetConnection.planets);
-    producersNames = valueProducerNames.concat(film.producers);
+    producersNames = valueProducerNames.concat( film.producers );
+    date = film.releaseDate
   });
 
   return (
     <div>
-      <ButtonLink onClick={handleOpen}>{props.person.name}</ButtonLink>
+      <ButtonLink onClick={handleOpen}>
+        Conocer mas sobre
+        <strong> {props.person.name}</strong>
+      </ButtonLink>
       <Modal
         open={open}
         onClose={handleClose}
@@ -52,10 +58,7 @@ export const ModalInformation = (props: People) => {
           </Typography>
           {titleNames.map((title, index) => (
             <div key={index}>
-              <button
-                className={styles.filterButton}
-                onClick={() => handleFilter(title)}
-              >
+              <button className={styles.filterButton} onClick={() => handleFilter(title)}>
                 <Typography id="modal-modal-description">{title}</Typography>
               </button>
             </div>
@@ -107,6 +110,15 @@ export const ModalInformation = (props: People) => {
                   </Typography>
                 </div>
               ))}
+
+              <Typography id="modal-modal-title" variant="h6" sx={{ mt: 2 }} component="h2">
+                Fecha de Lanzamiento
+              </Typography>
+              <div>
+                <Typography id="modal-modal-description" sx={{ ml: 2 }}>
+                  {date}
+                </Typography>
+              </div>
             </>
           )}
         </Box>

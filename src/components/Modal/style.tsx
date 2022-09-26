@@ -19,6 +19,7 @@ export const style = {
 
 export const ButtonLink = styled(Button)`
   color: #ffe81f;
+  display: grid;
 
   :hover {
     color: #ffe;

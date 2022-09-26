@@ -1,6 +1,7 @@
 .loadButtonAll{
   border-top: 1px solid #ffe81f;
   margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .loadButton{
@@ -10,5 +11,6 @@
   color: #fff;
   cursor: pointer;
   margin-top: 16px;
+  margin-bottom: 16px;
   padding: 5px 32px
 }

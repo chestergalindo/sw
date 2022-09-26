@@ -28,7 +28,7 @@ export const Home = () =>
       <div className={styles.listCharacter}>
         {data?.allPeople.people.map((person: People, index: Key) => (
           <div key={index}>
-            <ModalInformation person={person} />
+            <ModalInformation person={ person } />
           </div>
         ))}
       </div>
