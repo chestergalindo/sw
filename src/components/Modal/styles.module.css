@@ -1,0 +1,21 @@
+.filterButton {
+  background-color: #5082F0;
+  border-radius: 5px;
+  border: 1px solid #5082F0;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  margin: 5px 0px 5px 16px;
+  place-items: center;
+}
+
+.filterButtonPrincipal {
+  background-color: #000000;
+  border-radius: 5px;
+  border: 1px solid #ffe81f;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  margin-left: 16px;
+  place-items: center;
+}

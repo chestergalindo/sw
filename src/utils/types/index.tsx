@@ -26,3 +26,19 @@ export interface People {
     filmConnection: FilmConnection;
   };
 }
+
+export interface Root {
+  data: {
+    allPeople: {
+      people: People[];
+      totalCount: number;
+      pageInfo: {
+        endCursor: string;
+      };
+    };
+  };
+  fetchMore: (arg0: {
+    variables: { after: string };
+    updateQuery: (prevResult: any, { fetchMoreResult }: { fetchMoreResult: any }) => any;
+  }) => void;
+}

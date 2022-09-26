@@ -3,7 +3,8 @@ import { styled } from '@mui/material/styles';
 
 export const style = {
   position: 'absolute',
-  top: '50%',
+  top: '66%',
+  bottom: '1%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
@@ -12,6 +13,8 @@ export const style = {
   boxShadow: 24,
   borderRadius: 2,
   p: 4,
+  overflow: 'auto',
+  height:600
 };
 
 export const ButtonLink = styled(Button)`

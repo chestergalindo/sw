@@ -1,0 +1,14 @@
+.loadButtonAll{
+  border-top: 1px solid #ffe81f;
+  margin-top: 16px;
+}
+
+.loadButton{
+  background-color: #000000;
+  border-radius: 5px;
+  border: 1px solid #ffe81f;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 5px 32px
+}
