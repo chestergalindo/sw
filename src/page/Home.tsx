@@ -5,36 +5,11 @@ import { ModalInformation } from '../components/Modal';
 import { GET_LOCATIONS } from '../utils/query/get_locations.gql';
 import logo from '../utils/assets/Star_Wars.png';
 import { Key } from 'react';
+import { People } from '../utils/types';
+import { LoadButton } from '../components/LoadButton';
 
 export const Home = () => {
-  const { loading, error, data, fetchMore } = useQuery(GET_LOCATIONS, {
-    variables: { after: null },
-  } );
-
-  const LoadButton = () => {
-    return data?.allPeople.people.length >= data?.allPeople.totalCount ? (
-      <div style={{ marginTop: '16px'}}> cargada la totalidad de personajes </div>
-    ) : (
-      <button
-        onClick={() => {
-          const { endCursor } = data.allPeople.pageInfo;
-          fetchMore({
-            variables: { after: endCursor },
-            updateQuery: (prevResult, { fetchMoreResult }) => {
-              fetchMoreResult.allPeople.people = [
-                ...prevResult.allPeople.people,
-                ...fetchMoreResult.allPeople.people,
-              ];
-              return fetchMoreResult;
-            },
-          });
-        }}
-        style={{ backgroundColor: '#000000', border: '1px solid #ffe81f', color: '#fff', cursor: 'pointer', borderRadius: '5px', marginTop: '16px' }}
-      >
-        Mas personajes ....
-      </button>
-    );
-  }
+  const { loading, error, data, fetchMore } = useQuery(GET_LOCATIONS, { variables: { after: null }, } );
 
   if (error) return <div>errors</div>;
 
@@ -63,14 +38,13 @@ export const Home = () => {
           margin: 'auto',
         }}
       >
-        {data?.allPeople.people.map((person: { name: string }, index: Key | null | undefined) => (
-            <div key={index}>
-              <ModalInformation name={person.name} />
-            </div>
-          )
-        )}
+        {data?.allPeople.people.map((person: People, index: Key) => (
+          <div key={index}>
+            <ModalInformation person={person} />
+          </div>
+        ))}
       </div>
-      <LoadButton />
+      <LoadButton data={data} fetchMore={fetchMore} />
     </div>
   );
 };
