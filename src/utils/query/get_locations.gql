@@ -1,0 +1,30 @@
+import { gql } from '@apollo/client';
+
+export const GET_LOCATIONS = gql`
+  query Query($after: String) {
+    allPeople(first: 10, after: $after) {
+      totalCount
+      pageInfo {
+        endCursor
+      }
+      people {
+        name
+        filmConnection {
+          films {
+            title
+            director
+            producers
+            releaseDate
+            planetConnection {
+              totalCount
+              planets {
+                name
+                population
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

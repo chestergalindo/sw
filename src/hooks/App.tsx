@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RouteList } from '../Routes/RouteList';
 import { AppProvider } from './context';
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 export const App = () => {
   const queryClient = new QueryClient();
